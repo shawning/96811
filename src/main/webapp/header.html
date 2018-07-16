@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link href="${pageContext.request.contextPath}/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/no-responsive.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/css.css">
+	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?35f3ef64ebe52297ce17efa317883b9d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+	
+</head>
+<nav class="navbar" role="navigation" id="dz-header">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-xs-3">
+			    <div class="navbar-header">
+			        <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/img/logo.png" alt="大众物流" class="logo"></a>
+			    </div>
+		    </div>
+		    <div class="col-xs-9" id="dz-menu">
+			    <div>
+			        <ul class="nav navbar-nav">
+			            <li id="shouye" class="active"><a href="../">首页</a></li>
+			            <li id="huoyun"><a href="${pageContext.request.contextPath}/in/cargoRental">货运出租</a></li>
+			            <li id="banchang" class="dropdown">
+			                <a class="dropdown-toggle" data-toggle="dropdown">
+			                    搬场服务
+			                    <b class="caret"></b>
+			                </a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="${pageContext.request.contextPath}/in/trackbacksCity">市内搬场</a></li>
+			                    <li><a href="${pageContext.request.contextPath}/in/trackbacksInternational">国际搬场</a></li>
+			                </ul>
+			            </li>
+			            <li id="peisong" class="dropdown">
+			                <a class="dropdown-toggle" data-toggle="dropdown">
+			                    配送服务
+			                    <b class="caret"></b>
+			                </a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="${pageContext.request.contextPath}/in/distributionCity">市内配送</a></li>
+			                    <li><a href="${pageContext.request.contextPath}/in/distributionDangerous">危化品配送</a></li>
+			                </ul>
+			            </li>
+			            <li id="anli"><a href="${pageContext.request.contextPath}/in/successCase">成功案例</a></li>
+			            <li id="guanyu" class="dropdown">
+			                <a class="dropdown-toggle" data-toggle="dropdown">
+			                    关于我们
+			                    <b class="caret"></b>
+			                </a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="${pageContext.request.contextPath}/in/pressReleases">新闻公告</a></li>
+			                    <li><a href="${pageContext.request.contextPath}/in/jobOffers">招聘信息</a></li>
+			                    <li><a href="${pageContext.request.contextPath}/in/aboutCompany">公司简介</a></li>
+			                    <!-- <li><a href="${pageContext.request.contextPath}/in/commonProblem">常见问题</a></li> -->
+			                    <li><a href="${pageContext.request.contextPath}/in/contactUs">联系我们</a></li>
+			                    <li><a href="${pageContext.request.contextPath}/in/suggestions">投诉建议</a></li>
+			                </ul>
+			            </li>
+			        </ul>
+			    </div>
+		    </div>
+	    </div>
+    </div>
+</nav>
+<script type="text/javascript">
+	
+	$(function(){
+        $('li.dropdown').mouseover(function() {   
+     		$(this).addClass('open');    
+     	}).mouseout(function() {
+     		$(this).removeClass('open');    
+     	}); 
+        
+        var url = window.location.href;
+        var uary = url.split("in");
+        var index = uary[uary.length-1];
+        if(index==""){
+        	$("#shouye").addClass('active');
+        }else{
+        	$("li.active").removeClass('active');
+        	if(index.indexOf("cargoRental")>0){
+        		$("#huoyun").addClass('active');
+        	}else if(index.indexOf("trackbacksCity")>0){
+        		$("#banchang").addClass('active');
+        	}else if(index.indexOf("trackbacksInternational")>0){
+        		$("#banchang").addClass('active');
+        	}else if(index.indexOf("distributionCity")>0){
+        		$("#peisong").addClass('active');
+        	}else if(index.indexOf("distributionDangerous")>0){
+        		$("#peisong").addClass('active');
+        	}else if(index.indexOf("successCase")>0){
+        		$("#anli").addClass('active');
+        	}else if(index.indexOf("pressReleases")>0){
+        		$("#guanyu").addClass('active');
+        	}else if(index.indexOf("jobOffers")>0){
+        		$("#guanyu").addClass('active');
+        	}else if(index.indexOf("commonProblem")>0){
+        		$("#guanyu").addClass('active');
+        	}else if(index.indexOf("contactUs")>0){
+        		$("#guanyu").addClass('active');
+        	}else if(index.indexOf("suggestions")>0){
+        		$("#guanyu").addClass('active');
+        	}else{
+        		$("#shouye").addClass('active');
+        	}
+        }
+    });
+</script>

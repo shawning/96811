@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+				<title>上海大众运行物流</title>
+		<meta name="keywords" content="上海大众运行物流-联系我们" />
+	    <meta name="description" content="上海大众运行物流-联系我们" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	    <link rel="stylesheet" href="css/amazeui.min.css" type="text/css" />
+	    <link rel="stylesheet" href="css/style.css" type="text/css" />
+	    <script type="text/javascript" src="js/jquery.min.js" ></script>
+	    <script type="text/javascript" src="js/amazeui.min.js" ></script>
+	</head>
+	<body class="bgcolor">
+		<div class="banner"><img src="images/banner.jpg"/></div>
+	   <ul class="member-list">
+	     	<li>
+				<a href="#">
+		
+					<span>商务合作</span>
+					<i class="am-icon-angle-right">dzyx@96811.com</i>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				
+					<span>市场合作</span>
+					<i class="am-icon-angle-right">dzyx@96811.com</i>
+				</a>
+			</li>
+			<!-- <li>
+				<a href="#">
+		
+					<span>大众搬场加盟合作</span>
+					<i class="am-icon-angle-right">dzyx@96811.com</i>
+				</a>
+			</li> -->
+			<li>
+				<a href="#">
+			
+					<span>联系地址</span>
+					<i class="am-icon-angle-right">曹安公路2020号</i>
+				</a>
+			</li>
+			<li>
+				<a href="tel:96811">
+					
+					<span>在线客服</span>
+					<i class="am-icon-angle-right">96811</i>
+				</a>
+			</li>
+		</ul>
+		 
+       <div class="jl"></div>
+		 <div data-am-widget="navbar" class="am-navbar  dream-foot am-no-layout" id="">
+		      <ul class="am-navbar-nav1 am-cf am-avg-sm-3">   
+		          <li>
+		            <a href="index.html" class="curr">
+		                <span class="iconfont">&#xe60b;</span>
+		                <p class="am-navbar-label">首页</p>
+		            </a>
+		          </li>
+		          <li>
+		            <a href="yewujieshao.html" class="">
+		                <span class="iconfont">&#xe60c;</span>
+		                <p class="am-navbar-label">业务介绍</p>
+		            </a>
+		          </li>
+		         
+		          <li>
+		            <a href="contacts.html" class="">
+		                <span class="iconfont">&#xe60d;</span>
+		                <p class="am-navbar-label">联系我们</p>
+		            </a>
+		          </li>
+		         
+		      </ul>
+		</div>
+		
+
+		<script>
+			$(function(){
+			        $('.mem-pic-bg').click(function(){
+			            $('input[name=file]').click();
+			        })
+			        $('input[name=file]').change(function(){
+						$('#msg_bh').show();
+			            var fd = new FormData();
+			            fd.append("upload", 1);
+			            fd.append("img", $("input[name=file]").get(0).files[0]);
+			            $.ajax({
+			                url: "",
+			                type: "POST",
+			                processData: false,
+			                contentType: false,
+			                data: fd,
+			                success: function(d) {
+			              console.log(d);  
+			                    if(d.status){
+			                        $('.mem-pic-bg').css('background-image','url('+ d.info+')');
+									$('#msg_bh').hide();
+			                        location.reload();
+			                    }else{
+			                        alert(d.info);
+			                    }
+			                }
+			            });
+			        })
+			    });
+		</script>
+	</body>
+</html>

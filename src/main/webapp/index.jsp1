@@ -1,0 +1,238 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>首页-上海大众运行物流股份有限公司</title>
+<script type="text/javascript">
+	
+</script>
+<!--[if lt IE 9]>
+		<script src="https://cdn.yuncars.cn/vendor/iecompatible/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="home">
+		<div class="top" style="background: white;">
+		<%@include file="header.html"%>
+		</div>
+		<section style="background: #fff;">
+			<div class="container">
+				<div class="banner">
+					<div id="carousel-example-generic" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner" role="listbox" id="banners">
+							<div class="item active">
+								<a href="order/toOrder"><img src="img/1.jpg" alt=""></a>
+							</div>
+							<div class="item">
+								<a href="order/toOrder"><img src="img/2.jpg" alt=""></a>
+							</div>
+							<div class="item">
+								<a href="order/toOrder"><img src="img/3.jpg" alt=""></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section style="background: #fff;">
+			<div class="container">
+				<div class="process">
+					<div class="row">
+						<div class="col-xs-2">
+							<div class="thumbnail">
+								<div class="thumbnail-icon">
+									<img src="${pageContext.request.contextPath}/img/homeico1.png">
+								</div>
+								<div class="caption">
+									<h3>货运出租</h3>
+									<!-- <p>提供最优质的产品<br/>以产品第一为保证<br/>领先行业最高质量</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="thumbnail">
+								<div class="thumbnail-icon">
+									<img src="${pageContext.request.contextPath}/img/homeico2.png">
+								</div>
+								<div class="caption">
+									<h3>市内搬家</h3>
+									<!-- <p>提供最优质的产品<br/>以产品第一为保证<br/>领先行业最高质量</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="thumbnail">
+								<div class="thumbnail-icon">
+									<img src="${pageContext.request.contextPath}/img/homeico3.png">
+								</div>
+								<div class="caption">
+									<h3>国际搬家</h3>
+									<!-- <p>提供最优质的产品<br/>以产品第一为保证<br/>领先行业最高质量</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="thumbnail">
+								<div class="thumbnail-icon">
+									<img src="${pageContext.request.contextPath}/img/homeico4.png">
+								</div>
+								<div class="caption">
+									<h3>市内配送</h3>
+									<!-- <p>提供最优质的产品<br/>以产品第一为保证<br/>领先行业最高质量</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="thumbnail">
+								<div class="thumbnail-icon">
+									<img src="${pageContext.request.contextPath}/img/homeico5.png">
+								</div>
+								<div class="caption">
+									<h3>危化品配送</h3>
+									<!-- <p>提供最优质的产品<br/>以产品第一为保证<br/>领先行业最高质量</p> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="about middle-content text-center">
+					<h3 class="dz-title">
+						公司简介<small>COMPANY PROFILE</small>
+					</h3>
+					<p>上海大众运行物流股份有限公司</p>
+					<p>成立于1999年</p>
+					<P>荣获“上海名牌产品”称号</P>
+					<p>上海市首批无车承运人试点单位</p>
+					<p>ISO9001质量管理体系认证通过</p>
+					<p>拥有近千余辆运输车辆资源，满足各类搬家、配送、物流需求。</p>
+				</div>
+			</div>
+		</section>
+
+		<section style="background: #fff;">
+			<div class="container">
+				<div class="liuc middle-content">
+					<h3 class="dz-title">
+						软件使用步骤<small>DAZHONG STEPS FOR USAGE</small>
+					</h3>
+					<div class="liuc-slider">
+						<div class="liuc-line">
+							<ul>
+								<li class="thumb active" id="btn-img0"><span class="l1"></span>注册</li>
+								<li class="thumb" id="btn-img1"><span class="l2"></span>下单</li>
+								<li class="thumb" id="btn-img2"><span class="l3"></span>支付</li>
+								<li class="thumb" id="btn-img3"><span class="l4"></span>评价</li>
+							</ul>
+						</div>
+						<div class="liuc-content">
+							<div class="content">
+								<div class="imgbox">
+									<img alt="Danx" src="img/danx1.jpg" width="230" height="407" />
+									<img alt="Danx" src="img/danx2.jpg" width="230" height="407" />
+									<img alt="Danx" src="img/danx3.jpg" width="230" height="407" />
+									<img alt="Danx" src="img/danx4.jpg" width="230" height="407" />
+								</div>
+							</div>
+
+							<div class="png"></div>
+
+							<a id="hi-btn0" class="hi_btn"></a> <a id="hi-btn1"
+								class="hi_btn"></a> <a id="hi-btn2" class="hi_btn"></a> <a
+								id="hi-btn3" class="hi_btn"></a>
+
+							<div class="prev"></div>
+							<div class="next"></div>
+
+							<div class="slider-p">
+
+								<div id="slider-p0" class="slider-p-div">
+									<img src="img/word-6.png" alt="">
+								</div>
+
+								<div id="slider-p1" class="slider-p-div">
+									<img src="img/word-7.png" alt="">
+								</div>
+
+								<div id="slider-p2" class="slider-p-div">
+									<img src="img/word-8.png" alt="">
+								</div>
+
+								<div id="slider-p3" class="slider-p-div">
+									<img src="img/word-9.png" alt="">
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<%@include file="onfooter.jsp"%>
+		<ul class="ul_icon">
+			<li id="li01"><img src="img/icon3.png" />
+				<div class="tips" id="tips01">
+					<div class="con">
+						<img src="img/app-code.jpg" alt="" width="100">
+					</div>
+					<i class="arrow-right"></i>
+				</div></li>
+			<li id="li02"><img src="img/icon.png" />
+				<div class="tips" id="tips02">
+					<div class="con" style="width: 160px;">
+						<b>全国热线：96811</b>
+					</div>
+					<i class="arrow-right"></i>
+				</div></li>
+			<li id="li03"><img src="img/icon2.png" />
+				<div class="tips" id="tips03">
+					<div class="con">
+						<img src="img/wx-code.jpg" alt="" width="100">
+					</div>
+					<i class="arrow-right"></i>
+				</div></li>
+		</ul>
+
+	</div>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/* if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			window.location = "${pageContext.request.contextPath}/mobile/index.html"; 
+		} */
+        $(".carousel").carousel({
+            interval: 8000
+        });
+        $('li.dropdown').mouseover(function() {   
+     		$(this).addClass('open');    
+     	}).mouseout(function() {
+     		$(this).removeClass('open');    
+     	}); 
+     	$(".ul_icon>li").mouseover(function (){  
+			var Obj = $(this).attr('id');
+			  num = Obj.substring(2, Obj.length);
+            $("#tips"+num).show();  
+        }).mouseout(function (){  
+            $(".ul_icon li>div[id]").hide();  
+        });
+    });
+</script>
+</body>
+</html>
