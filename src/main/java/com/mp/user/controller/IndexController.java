@@ -119,5 +119,21 @@ public class IndexController {
 	public String trackbacksInternational() {
 		return "../../trackbacksInternational";
 	}
+	/**
+	 * 开票
+	 * @return
+	 */
+	@RequestMapping("/ticket")
+	public String ticket() {
+		return "../../ticket";
+	}
+	/**
+	 * 优惠券
+	 * @return
+	 */
+	@RequestMapping("/conpons")
+	public String conpons() {
+		return "../../conpons";
+	}
 	
 }
