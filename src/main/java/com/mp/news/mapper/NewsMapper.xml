@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.news.mapper.NewsMapper">
+
+	<!--实体映射-->
+	<resultMap id="newsResultMap" type="com.mp.news.entity.News">
+		<!---->
+		<id property="id" column="ID" />
+		<!--标题-->
+		<result property="title" column="TITLE" />
+		<!--新闻详细-->
+		<result property="body" column="BODY" />
+		<!--创建人-->
+		<result property="creater" column="CREATER" />
+		<!--创建时间-->
+		<result property="createDate" column="CREATE_DATE" />
+		<!--是否显示，0不显示1显示-->
+		<result property="delFlag" column="DEL_FLAG" />
+	</resultMap>
+
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	TITLE,	BODY,	CREATER,	CREATE_DATE,	DEL_FLAG
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="newsResultMap" parameterType="java.lang.Integer">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM t_news
+		 WHERE ID = #{id}
+	</select>
+	
+	<select id="selectAll" resultMap="newsResultMap" parameterType="com.mp.news.entity.News">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM t_news where del_flag = 1 order by create_date desc
+	</select>
+	<select id="selectAllCount" resultType="int" parameterType="com.mp.news.entity.News">
+		 SELECT
+			count(1)
+		 FROM t_news  where del_flag = 1 order by create_date desc
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		 update  t_news set del_flag = 0
+		 WHERE ID = #{id}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insert" parameterType="com.mp.news.entity.News">
+		 INSERT INTO t_news
+ 		(ID,TITLE,BODY,CREATER,CREATE_DATE,DEL_FLAG) 
+		 VALUES 
+ 		(#{id},#{title},#{body},#{creater},#{createDate},#{delFlag}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="com.mp.news.entity.News">
+		 INSERT INTO t_news
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 ID,
+			</if>
+			<if test="title != null">
+				 TITLE,
+			</if>
+			<if test="body != null">
+				 BODY,
+			</if>
+			<if test="creater != null">
+				 CREATER,
+			</if>
+			<if test="createDate != null">
+				 CREATE_DATE,
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+				 #{id},
+			</if>
+			<if test="title!=null">
+				 #{title},
+			</if>
+			<if test="body!=null">
+				 #{body},
+			</if>
+			<if test="creater!=null">
+				 #{creater},
+			</if>
+			<if test="createDate!=null">
+				 #{createDate},
+			</if>
+			<if test="delFlag!=null">
+				 #{delFlag},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="com.mp.news.entity.News">
+		 UPDATE t_news
+ 		 <set> 
+			<if test="title != null">
+				 TITLE = #{title},
+			</if>
+			<if test="body != null">
+				 BODY = #{body},
+			</if>
+			<if test="creater != null">
+				 CREATER = #{creater},
+			</if>
+			<if test="createDate != null">
+				 CREATE_DATE = #{createDate},
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG = #{delFlag},
+			</if>
+
+ 		 </set>
+		 WHERE ID = #{id}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="com.mp.news.entity.News">
+		 UPDATE t_news
+		 SET 
+			 TITLE = #{title},
+			 BODY = #{body},
+			 CREATER = #{creater},
+			 CREATE_DATE = #{createDate},
+			 DEL_FLAG = #{delFlag}
+		 WHERE ID = #{id}
+	</update>
+
+</mapper>

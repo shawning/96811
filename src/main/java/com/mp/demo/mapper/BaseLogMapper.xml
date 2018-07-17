@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.demo.mapper.BaseLogMapper">
+
+	<!--实体映射-->
+	<resultMap id="BaseLogResultMap" type="com.mp.demo.entity.BaseLog">
+		<!---->
+		<id property="id" column="id" />
+		<!--日志类型，注册、登录、访问设备-->
+		<result property="type" column="type" />
+		<!--用户id-->
+		<result property="userId" column="user_id" />
+		<!--内容-->
+		<result property="content" column="content" />
+		<!--操作时间-->
+		<result property="createDate" column="create_date" />
+	</resultMap>
+
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	type,	user_id,	content,	create_date
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="BaseLogResultMap" parameterType="java.lang.Integer">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM b_base_log
+		 WHERE id = #{id}
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		 DELETE FROM b_base_log
+		 WHERE id = #{id}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insert" parameterType="com.mp.demo.entity.BaseLog">
+		 INSERT INTO b_base_log
+ 		(id,type,user_id,content,create_date) 
+		 VALUES 
+ 		(#{id},#{type},#{userId},#{content},#{createDate}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="com.mp.demo.entity.BaseLog">
+		 INSERT INTO b_base_log
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 id,
+			</if>
+			<if test="type != null">
+				 type,
+			</if>
+			<if test="userId != null">
+				 user_id,
+			</if>
+			<if test="content != null">
+				 content,
+			</if>
+			<if test="createDate != null">
+				 create_date,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+				 #{id},
+			</if>
+			<if test="type!=null">
+				 #{type},
+			</if>
+			<if test="userId!=null">
+				 #{userId},
+			</if>
+			<if test="content!=null">
+				 #{content},
+			</if>
+			<if test="createDate!=null">
+				 #{createDate},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="com.mp.demo.entity.BaseLog">
+		 UPDATE b_base_log
+ 		 <set> 
+			<if test="type != null">
+				 type = #{type},
+			</if>
+			<if test="userId != null">
+				 user_id = #{userId},
+			</if>
+			<if test="content != null">
+				 content = #{content},
+			</if>
+			<if test="createDate != null">
+				 create_date = #{createDate},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="com.mp.demo.entity.BaseLog">
+		 UPDATE b_base_log
+		 SET 
+			 type = #{type},
+			 user_id = #{userId},
+			 content = #{content},
+			 create_date = #{createDate}
+		 WHERE id = #{id}
+	</update>
+
+</mapper>

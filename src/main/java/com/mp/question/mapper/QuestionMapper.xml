@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.question.mapper.QuestionMapper">
+
+	<!--实体映射-->
+	<resultMap id="questionResultMap" type="com.mp.question.entity.Question">
+		<!---->
+		<id property="id" column="ID" />
+		<!--0:车主，1货主-->
+		<result property="type" column="TYPE" />
+		<!--问题-->
+		<result property="question" column="QUESTION" />
+		<!--答案-->
+		<result property="answer" column="ANSWER" />
+		<!--1:有效，0无效-->
+		<result property="delFlag" column="DEL_FLAG" />
+		<!---->
+		<result property="createDate" column="CREATE_DATE" />
+		<!---->
+		<result property="updateDate" column="UPDATE_DATE" />
+	</resultMap>
+
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	TYPE,	QUESTION,	ANSWER,	DEL_FLAG,	CREATE_DATE,	UPDATE_DATE
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="questionResultMap" parameterType="java.lang.Integer">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM t_question
+		 WHERE ID = #{id}
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		 UPDATE t_question
+		 SET DEL_FLAG = 0 WHERE ID = #{id}
+	</delete>
+	<select id="selectAll" resultMap="questionResultMap" parameterType="com.mp.question.entity.Question">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM t_question where del_flag = 1
+		 <if test="question != null">
+				 and QUESTION like CONCAT('%', #{question}, '%')
+		</if>
+		 order by create_date desc
+	</select>
+	<select id="selectAllCount" resultType="int" parameterType="com.mp.question.entity.Question">
+		 SELECT
+			count(1)
+		 FROM t_question  where del_flag = 1
+		  <if test="question != null">
+				 and QUESTION like CONCAT('%', #{question}, '%')
+		</if>
+		  order by create_date desc
+	</select>
+	<!-- 添加 -->
+	<insert id="insert" parameterType="com.mp.question.entity.Question">
+		 INSERT INTO t_question
+ 		(ID,TYPE,QUESTION,ANSWER,DEL_FLAG,CREATE_DATE,UPDATE_DATE) 
+		 VALUES 
+ 		(#{id},#{type},#{question},#{answer},#{delFlag},#{createDate},#{updateDate}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="com.mp.question.entity.Question">
+		 INSERT INTO t_question
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 ID,
+			</if>
+			<if test="type != null">
+				 TYPE,
+			</if>
+			<if test="question != null">
+				 QUESTION,
+			</if>
+			<if test="answer != null">
+				 ANSWER,
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG,
+			</if>
+			<if test="createDate != null">
+				 CREATE_DATE,
+			</if>
+			<if test="updateDate != null">
+				 UPDATE_DATE,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+				 #{id},
+			</if>
+			<if test="type!=null">
+				 #{type},
+			</if>
+			<if test="question!=null">
+				 #{question},
+			</if>
+			<if test="answer!=null">
+				 #{answer},
+			</if>
+			<if test="delFlag!=null">
+				 #{delFlag},
+			</if>
+			<if test="createDate!=null">
+				 #{createDate},
+			</if>
+			<if test="updateDate!=null">
+				 #{updateDate},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="com.mp.question.entity.Question">
+		 UPDATE t_question
+ 		 <set> 
+			<if test="type != null">
+				 TYPE = #{type},
+			</if>
+			<if test="question != null">
+				 QUESTION = #{question},
+			</if>
+			<if test="answer != null">
+				 ANSWER = #{answer},
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG = #{delFlag},
+			</if>
+			<if test="createDate != null">
+				 CREATE_DATE = #{createDate},
+			</if>
+			<if test="updateDate != null">
+				 UPDATE_DATE = #{updateDate},
+			</if>
+
+ 		 </set>
+		 WHERE ID = #{id}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="com.mp.question.entity.Question">
+		 UPDATE t_question
+		 SET 
+			 TYPE = #{type},
+			 QUESTION = #{question},
+			 ANSWER = #{answer},
+			 DEL_FLAG = #{delFlag},
+			 CREATE_DATE = #{createDate},
+			 UPDATE_DATE = #{updateDate}
+		 WHERE ID = #{id}
+	</update>
+
+</mapper>

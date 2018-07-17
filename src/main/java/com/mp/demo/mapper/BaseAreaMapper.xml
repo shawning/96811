@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.demo.mapper.BaseAreaMapper">
+	<resultMap type="com.mp.demo.entity.BaseArea" id="baseAreaResult">
+		<result column="id" property="id" />
+		<result column="area" property="area" />
+		<result column="parent_Id" property="parentId" />
+		<result column="Del_flag" property="delflag" />
+	</resultMap>
+	<select id="selectByParentId" resultMap="baseAreaResult">
+		select * from b_area
+		where parent_Id=#{parentId}
+	</select>
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="baseAreaResult" parameterType="java.lang.Integer">
+		 SELECT
+		 *
+		 FROM b_area
+		 WHERE id = #{id}
+	</select>
+</mapper>
+    

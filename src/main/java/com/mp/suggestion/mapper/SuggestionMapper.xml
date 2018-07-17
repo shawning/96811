@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.suggestion.mapper.SuggestionMapper">
+
+	<!--实体映射-->
+	<resultMap id="suggestionResultMap" type="com.mp.suggestion.entity.Suggestion">
+		<!---->
+		<id property="id" column="ID" />
+		<!--联系人-->
+		<result property="phone" column="PHONE" />
+		<!--建议内容-->
+		<result property="description" column="DESCRIPTION" />
+		<!--0创建，1处理中，2处理完毕-->
+		<result property="status" column="STATUS" />
+		<!--0：无效，1有效-->
+		<result property="delFlag" column="DEL_FLAG" />
+		<!--处理人-->
+		<result property="dealer" column="DEALER" />
+		<!--创建时间-->
+		<result property="createDate" column="CREATE_DATE" />
+	</resultMap>
+
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 id,	PHONE,	DESCRIPTION,	STATUS,	DEL_FLAG,	DEALER,CREATE_DATE
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="suggestionResultMap" parameterType="java.lang.Integer">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM t_suggestion
+		 WHERE ID = #{id}
+	</select>
+
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		 UPDATE t_suggestion
+		 SET DEL_FLAG = 0 WHERE ID = #{id}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insert" parameterType="com.mp.suggestion.entity.Suggestion">
+		 INSERT INTO t_suggestion
+ 		(ID,PHONE,DESCRIPTION,STATUS,DEL_FLAG,DEALER,CREATE_DATE) 
+		 VALUES 
+ 		(#{id},#{phone},#{description},#{status},#{delFlag},#{dealer},#{createDate}) 
+	</insert>
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="com.mp.suggestion.entity.Suggestion">
+		 INSERT INTO t_suggestion
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 ID,
+			</if>
+			<if test="phone != null">
+				 PHONE,
+			</if>
+			<if test="description != null">
+				 DESCRIPTION,
+			</if>
+			<if test="status != null">
+				 STATUS,
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG,
+			</if>
+			<if test="dealer != null">
+				 DEALER,
+			</if>
+			<if test="createDate != null">
+				 CREATE_DATE,
+			</if>
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+				 #{id},
+			</if>
+			<if test="phone!=null">
+				 #{phone},
+			</if>
+			<if test="description!=null">
+				 #{description},
+			</if>
+			<if test="status!=null">
+				 #{status},
+			</if>
+			<if test="delFlag!=null">
+				 #{delFlag},
+			</if>
+			<if test="dealer!=null">
+				 #{dealer},
+			</if>
+			<if test="createDate!=null">
+				 #{createDate},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="com.mp.suggestion.entity.Suggestion">
+		 UPDATE t_suggestion
+ 		 <set> 
+			<if test="phone != null">
+				 PHONE = #{phone},
+			</if>
+			<if test="description != null">
+				 DESCRIPTION = #{description},
+			</if>
+			<if test="status != null">
+				 STATUS = #{status},
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG = #{delFlag},
+			</if>
+			<if test="dealer != null">
+				 DEALER = #{dealer},
+			</if>
+ 		 </set>
+		 WHERE ID = #{id}
+	</update>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKey" parameterType="com.mp.suggestion.entity.Suggestion">
+		 UPDATE t_suggestion
+		 SET 
+			 PHONE = #{phone},
+			 DESCRIPTION = #{description},
+			 STATUS = #{status},
+			 DEL_FLAG = #{delFlag},
+			 DEALER = #{dealer}
+		 WHERE ID = #{id}
+	</update>
+
+</mapper>
