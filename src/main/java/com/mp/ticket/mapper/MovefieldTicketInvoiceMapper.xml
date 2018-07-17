@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mp.ticket.mapper.MovefieldTicketInvoiceMapper">
+
+	<!--实体映射-->
+	<resultMap id="MovefieldTicketInvoiceResultMap" type="com.mp.ticket.entity.MovefieldTicketInvoice">
+		<!--发票记录编号-->
+		<id property="id" column="ID" />
+		<!--订单ID-->
+		<!--开票类型 0普通，1增值-->
+		<result property="invoiceType" column="INVOICE_TYPE" />
+		<!--电子发票号-->
+		<result property="sno" column="SNO" />
+		<!--含税金额-->
+		<result property="taxAmount" column="TAX_AMOUNT" />
+		<!-- 开票单位 -->
+		<result property="invoiceCompany" column="INVOICE_COMPANY" />
+		<!--发票编号-->
+		<result property="invoiceNumber" column="INVOICE_NUMBER" />
+		
+		<!--纳税人识别号-->
+		<result property="taxpayerIdentityNumber" column="TAXPAYER_IDENTITY_NUMBER" />
+		<!--地址电话-->
+		<result property="addressPhone" column="ADDRESS_PHONE" />
+		<!--寄票地址-->
+		<result property="invoiceAddress" column="INVOICE_ADDRESS" />
+		<!-- 电话 -->
+		<result property="invoicePhone" column="INVOICE_PHONE" />
+		<!-- 电话 -->
+		<result property="bank" column="BANK" />
+		<!--银行及开户账号-->
+		<result property="bankBanknumber" column="BANK_BANKNUMBER" />
+		<result property="orderIds" column="ORDER_IDS"/>
+		<result property="invoiceIds" column="INVOICE_IDS"/>
+		<!--发票状态(0为有效 1为删除)-->
+		<result property="status" column="STATUS" />
+		<!--备注-->
+		<result property="description" column="DESCRIPTION" />
+		<!--0逻辑删除，1有效-->
+		<result property="delFlag" column="DEL_FLAG" />
+		<!--创建人-->
+		<result property="creater" column="CREATER" />
+		<!--创建时间-->
+		<result property="createTime" column="CREATE_TIME" />
+		<!--更新人-->
+		<result property="updater" column="UPDATER" />
+		<!--更新时间-->
+		<result property="updateTime" column="UPDATE_TIME" />
+		<!--备用字段1-->
+		<result property="bakstr1" column="BAKSTR1" />
+		<!--备用字段2-->
+		<result property="bakstr2" column="BAKSTR2" />
+		<!--备用字段3-->
+		<result property="bakstr3" column="BAKSTR3" />
+	</resultMap>
+
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		 ID,	INVOICE_TYPE,SNO,	INVOICE_TYPE,	TAX_AMOUNT,INVOICE_COMPANY,	INVOICE_NUMBER,	TAXPAYER_IDENTITY_NUMBER,	ADDRESS_PHONE,INVOICE_ADDRESS,INVOICE_PHONE,BANK,	BANK_BANKNUMBER,	STATUS,ORDER_IDS,INVOICE_IDS,DESCRIPTION,	DEL_FLAG,	CREATER,	CREATE_TIME,	UPDATER,	UPDATE_TIME,	BAKSTR1,	BAKSTR2,	BAKSTR3
+	</sql>
+
+	<!-- 查询（根据主键ID查询） -->
+	<select id="selectByPrimaryKey" resultMap="MovefieldTicketInvoiceResultMap" parameterType="java.lang.String">
+		SELECT
+		 <include refid="Base_Column_List" />
+		 FROM m_movefield_ticket_invoice
+		 WHERE DEL_FLAG = 1 AND SNO = #{sno}
+	</select>
+	<select id="selectBySerialNumber" resultMap="MovefieldTicketInvoiceResultMap" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM m_movefield_ticket_invoice
+		 WHERE DEL_FLAG = 1 AND INVOICE_NUMBER = #{invoiceNumber}
+	</select>
+	<select id="selectBySno" resultMap="MovefieldTicketInvoiceResultMap" parameterType="java.lang.String">
+		 SELECT
+		 <include refid="Base_Column_List" />
+		 FROM m_movefield_ticket_invoice
+		 WHERE DEL_FLAG = 1 AND SNO = #{sno}
+	</select>
+	<update id="updateStatusByIds" parameterType="com.mp.ticket.entity.MovefieldTicketInvoice">
+		 UPDATE
+		 m_movefield_ticket_invoice
+		 SET STATUS = #{status}
+		 WHERE INVOICE_NUMBER = #{invoiceNumber}
+	</update>
+	<!--删除：根据主键ID删除-->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		 DELETE FROM m_movefield_ticket_invoice
+		 WHERE ID = #{id}
+	</delete>
+	<!-- 翻页查询  -->
+	<select id="queryByPage" resultMap="MovefieldTicketInvoiceResultMap">
+		 SELECT
+		 <include refid="Base_Column_List" /> 
+		 FROM m_movefield_ticket_invoice where 1=1 
+		<if test="invoiceCompany != null">and INVOICE_COMPANY like CONCAT('%', #{invoiceCompany}, '%')  </if>
+		<if test="invoiceNumber != null">and INVOICE_NUMBER like CONCAT('%', #{invoiceNumber}, '%')  </if>
+		<if test="orderIds != null">and ORDER_IDS like CONCAT('%', #{orderIds}, '%')   </if>
+		<if test="startDate != null">
+				<![CDATA[	AND DATE_FORMAT(create_Time,'%Y-%m-%d') >=  #{startDate}   ]]>
+		</if>
+		<if test="endDate != null">
+				<![CDATA[	AND DATE_FORMAT(create_Time,'%Y-%m-%d') <= #{endDate}  ]]>
+		</if>		
+		<if test="companyId != null">
+		 	<![CDATA[	and bakstr1 in (select id from m_movefield_company where id=#{companyId} or PARENT_ID = #{companyId})   ]]>
+		</if>
+		order by CREATE_TIME desc
+	</select>
+	<!-- 翻页查询求总  -->
+	<select id="queryByPageCount" resultType="int">
+		 SELECT
+		 count(1)
+		 FROM m_movefield_ticket_invoice where 1=1 
+		<if test="invoiceCompany != null">and INVOICE_COMPANY like CONCAT('%', #{invoiceCompany}, '%')  </if>
+		<if test="invoiceNumber != null">and INVOICE_NUMBER like CONCAT('%', #{invoiceNumber}, '%')  </if>
+		<if test="orderIds != null">and ORDER_IDS like CONCAT('%', #{orderIds}, '%')   </if>
+		<if test="startDate != null">
+				<![CDATA[	AND DATE_FORMAT(create_Time,'%Y-%m-%d') >=  #{startDate}   ]]>
+		</if>
+		<if test="endDate != null">
+				<![CDATA[	AND DATE_FORMAT(create_Time,'%Y-%m-%d') <= #{endDate}  ]]>
+		</if>	
+		<if test="companyId != null">
+		 	<![CDATA[	and bakstr1 in (select id from m_movefield_company where id=#{companyId} or PARENT_ID = #{companyId})   ]]>
+		</if>	
+		order by CREATE_TIME desc
+	</select>
+	
+
+	<!-- 添加 （匹配有值的字段）-->
+	<insert id="insertSelective" parameterType="com.mp.ticket.entity.MovefieldTicketInvoice" useGeneratedKeys="true" keyProperty="id">
+		 INSERT INTO m_movefield_ticket_invoice
+		 <trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null">
+				 ID,
+			</if>
+			<if test="invoiceType != null">
+				 INVOICE_TYPE,
+			</if>
+			<if test="sno != null">
+				 SNO,
+			</if>
+			<if test="taxAmount != null">
+				 TAX_AMOUNT,
+			</if>
+			<if test="invoiceCompany != null">
+				 INVOICE_COMPANY,
+			</if>
+			<if test="invoiceNumber != null">
+				 INVOICE_NUMBER,
+			</if>
+			
+			<if test="taxpayerIdentityNumber != null">
+				 TAXPAYER_IDENTITY_NUMBER,
+			</if>
+			<if test="addressPhone != null">
+				 ADDRESS_PHONE,
+			</if>
+			<if test="invoiceAddress != null">
+				 INVOICE_ADDRESS,
+			</if>
+			<if test="invoicePhone != null">
+				INVOICE_PHONE,
+			</if>
+			<if test="bank != null">
+				 BANK,
+			</if>
+			<if test="bankBanknumber != null">
+				 BANK_BANKNUMBER,
+			</if>
+			<if test="status != null">
+				 STATUS,
+			</if>
+			<if test="orderIds != null">
+				 ORDER_IDS,
+			</if>
+			<if test="invoiceIds != null">
+				 INVOICE_IDS,
+			</if>
+			<if test="description != null">
+				 DESCRIPTION,
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG,
+			</if>
+			<if test="creater != null">
+				 CREATER,
+			</if>
+			<if test="createTime != null">
+				 CREATE_TIME,
+			</if>
+			<if test="updater != null">
+				 UPDATER,
+			</if>
+			<if test="updateTime != null">
+				 UPDATE_TIME,
+			</if>
+			<if test="bakstr1 != null">
+				 BAKSTR1,
+			</if>
+			<if test="bakstr2 != null">
+				 BAKSTR2,
+			</if>
+			<if test="bakstr3 != null">
+				 BAKSTR3,
+			</if>
+
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id!=null">
+				 #{id},
+			</if>			
+			<if test="invoiceType!=null">
+				 #{invoiceType},
+			</if>
+			<if test="sno!=null">
+				 #{sno},
+			</if>
+			<if test="taxAmount!=null">
+				 #{taxAmount},
+			</if>
+			<if test="invoiceCompany!=null">
+				 #{invoiceCompany},
+			</if>
+			<if test="invoiceNumber!=null">
+				 #{invoiceNumber},
+			</if>
+			<if test="taxpayerIdentityNumber!=null">
+				 #{taxpayerIdentityNumber},
+			</if>
+			<if test="addressPhone!=null">
+				 #{addressPhone},
+			</if>
+			<if test="invoiceAddress!=null">
+				 #{invoiceAddress},
+			</if>
+			<if test="invoicePhone != null">
+				 #{invoicePhone},
+			</if>
+			<if test="bank != null">
+				 #{bank},
+			</if>
+			<if test="bankBanknumber!=null">
+				 #{bankBanknumber},
+			</if>
+			
+			<if test="status!=null">
+				 #{status},
+			</if>
+			<if test="orderIds != null">
+				 #{orderIds},
+			</if>
+			<if test="invoiceIds != null">
+				  #{invoiceIds},
+			</if>
+			<if test="description!=null">
+				 #{description},
+			</if>
+			<if test="delFlag!=null">
+				 #{delFlag},
+			</if>
+			<if test="creater!=null">
+				 #{creater},
+			</if>
+			<if test="createTime!=null">
+				 #{createTime},
+			</if>
+			<if test="updater!=null">
+				 #{updater},
+			</if>
+			<if test="updateTime!=null">
+				 #{updateTime},
+			</if>
+			<if test="bakstr1!=null">
+				 #{bakstr1},
+			</if>
+			<if test="bakstr2!=null">
+				 #{bakstr2},
+			</if>
+			<if test="bakstr3!=null">
+				 #{bakstr3},
+			</if>
+		 </trim>
+	</insert>
+
+	<!-- 修 改-->
+	<update id="updateByPrimaryKeySelective" parameterType="com.mp.ticket.entity.MovefieldTicketInvoice">
+		 UPDATE m_movefield_ticket_invoice
+ 		 <set> 
+			
+			<if test="invoiceType != null">
+				 INVOICE_TYPE = #{invoiceType},
+			</if>
+			<if test="sno != null">
+				 SNO = #{sno},
+			</if>
+			<if test="taxAmount != null">
+				 TAX_AMOUNT = #{taxAmount},
+			</if>
+			<if test="invoiceCompany != null">
+				 INVOICE_COMPANY = #{invoiceCompany},
+			</if>
+			<if test="invoiceNumber != null">
+				 INVOICE_NUMBER = #{invoiceNumber},
+			</if>
+			
+			<if test="taxpayerIdentityNumber != null">
+				 TAXPAYER_IDENTITY_NUMBER = #{taxpayerIdentityNumber},
+			</if>
+			<if test="addressPhone != null">
+				 ADDRESS_PHONE = #{addressPhone},
+			</if>
+			<if test="invoiceAddress != null">
+				 INVOICE_ADDRESS = #{invoiceAddress},
+			</if>
+			<if test="invoicePhone != null">
+				 INVOICE_PHONE = #{invoicePhone},
+			</if>
+			<if test="bank != null">
+				 BANK = #{bank},
+			</if>
+			<if test="bankBanknumber != null">
+				 BANK_BANKNUMBER = #{bankBanknumber},
+			</if>
+			<if test="status != null">
+				 STATUS = #{status},
+			</if>
+			<if test="orderIds != null">
+				 ORDER_IDS = #{orderIds},
+			</if>
+			<if test="invoiceIds != null">
+				 INVOICE_IDS = #{invoiceIds},
+			</if>
+			<if test="description != null">
+				 DESCRIPTION = #{description},
+			</if>
+			<if test="delFlag != null">
+				 DEL_FLAG = #{delFlag},
+			</if>
+			<if test="creater != null">
+				 CREATER = #{creater},
+			</if>
+			<if test="createTime != null">
+				 CREATE_TIME = #{createTime},
+			</if>
+			<if test="updater != null">
+				 UPDATER = #{updater},
+			</if>
+			<if test="updateTime != null">
+				 UPDATE_TIME = #{updateTime},
+			</if>
+			<if test="bakstr1 != null">
+				 BAKSTR1 = #{bakstr1},
+			</if>
+			<if test="bakstr2 != null">
+				 BAKSTR2 = #{bakstr2},
+			</if>
+			<if test="bakstr3 != null">
+				 BAKSTR3 = #{bakstr3},
+			</if>
+
+ 		 </set>
+		 WHERE ID = #{id}
+	</update>
+
+
+</mapper>
