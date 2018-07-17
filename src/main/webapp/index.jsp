@@ -270,7 +270,7 @@
     });
 </script>
 <!-- 订单start -->
-<div id="closeDiv" style="width: 100%;min-width: 100%;position: fixed;left: 0;bottom: 0;z-index: 1001;height: 40%;background: rgba(0, 17, 26,0.85)">
+<div id="closeDiv" style="width: 100%;min-width: 100%;position: fixed;left: 0;bottom: 0;z-index: 1001;height:30%;background: rgba(0, 17, 26,0.85)">
 <a id="close" style="width: 48px;height: 48px;display: inline-block;position: absolute;right: 0;top: 10px;background: url(${pageContext.request.contextPath}/img/close.png);">
 </a>
 <div class="reserve middle-content" style="width: 90%;margin: 0 auto;color:white;font-weight: 100;padding-top: 10px;">
@@ -310,13 +310,13 @@
 							<div class="col-xs-6" style="width:66%">
 								<div class="form-group">
 								    <label>搬运物品</label>
-								    <textarea class="form-control" id="description" rows="1"></textarea>
+								    <textarea class="form-control" style="height: 34px;" id="description" rows="1"></textarea>
 							  	</div>
 						  	</div>
 						  	<div class="col-xs-6" style="width:33%">
 								<div class="form-group"  style="margin-bottom:5px">
 								  <label>&nbsp</label>
-						  		<button type="button" onclick="addOrder()" class="form-control btn btn-warning" style="height: 34px;">提交</button>
+						  		<button type="button" onclick="addOrder()" class="form-control btn btn-warning" >提交</button>
 						  	</div>
 						  	</div>
 					  	</div>

@@ -151,11 +151,11 @@
 						<p>0.6T长安</p>
 					</div>
 					<div class="cost-price">
-						￥25（3公里）
+						￥40（5公里）
 					</div>
 					<div class="cost-text">
 						运价：3.5元/公里<br/>
-						尺寸：2450×1485×1260
+						尺寸：3000×1600×1200
 					</div>
 				</div>
 				<div class="col-xs-3">
@@ -164,7 +164,7 @@
 						<p>0.6T依维柯</p>
 					</div>
 					<div class="cost-price">
-						￥25（3公里）
+						￥40（5公里）
 					</div>
 					<div class="cost-text">
 						运价：3.5元/公里<br/>
@@ -177,7 +177,7 @@
 						<p>0.9T</p>
 					</div>
 					<div class="cost-price">
-						￥30（3公里）
+						￥50（5公里）
 					</div>
 					<div class="cost-text">
 						运价：4.0元/公里<br/>
@@ -190,7 +190,7 @@
 						<p>1.75T</p>
 					</div>
 					<div class="cost-price">
-						￥45（3公里）
+						￥60（5公里）
 					</div>
 					<div class="cost-text">
 						运价：4.5元/公里<br/>
@@ -200,9 +200,9 @@
 				<div class="col-xs-3" style="width:98%;height:112px">
 					<div class="cost-icon">
 						等候时间：每5分钟折1公里计费；<br/>
-						关于装卸搬运费：托运前由托运双方事先协商；<br/>
-						路桥（境）费：客户自理，承运方代收代付；<br/>
-						放空费：车辆在约定时间到达约定地点后，由于客户自身原因不能履约的，客户应当按基价付费。
+						装卸搬运费：托运前由客户与承运方协商支付；<br/>
+						放空费：由于客户的原因不能履约的，客户应当支付起步费；<br/>
+						其他费用：运输过程中产生的路桥（境）费、高速费、停车费等费用，由客户自理，承运方代收代付。
 					</div>
 					<!-- <div class="cost-price">
 						

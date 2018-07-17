@@ -27,7 +27,7 @@ function addOrder(){
 		 now = now + date.getMinutes() + ":";
 		 now = now + date.getSeconds() + "";
 		 var bb = daysBetween(bookDate,now);
-		 if(72>=bb){
+		 if(bb<72){
 			 alert("只能预约3天后的时间");
 			 return;
 		 }
