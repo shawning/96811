@@ -160,7 +160,7 @@
 						</tbody>
 					</table>
 					<div class="color-orange text-center">
-						<h4>简历投递至：<a href="mailto:123@dz.com">xuyue@96811.com</a>&nbsp&nbsp电话：31025905</h4>
+						<h4>简历投递至：<a href="mailto:xuyue@96811.com">xuyue@96811.com</a>&nbsp&nbsp电话：31025905</h4>
 					</div>
 				</div>
 				<%@include file="right.jsp"%>	

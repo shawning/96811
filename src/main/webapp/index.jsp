@@ -292,7 +292,7 @@
 </script>
 	<!-- 领券start -->
 	<%--<div id="couponsCloseDiv" style="width: 50%;min-width: 50%;position: fixed;right: 0;bottom: 20%;z-index: 1001;height:30%;background: rgba(0, 17, 26,0.85)">--%>
-	<div id="couponsCloseDiv" style="display:none;width: 100%;min-width: 100%;position: fixed;left: 0;bottom: 0;z-index: 1001;height:45%;background: rgba(0, 17, 26,0.85)">
+	<div id="couponsCloseDiv" style="display:none;width: 100%;min-width: 100%;position: fixed;left: 0;bottom: 0;z-index: 1001;height:46%;background: rgba(0, 17, 26,0.85)">
 
 		<a id="couponsClose" style="width: 48px;height: 48px;display: inline-block;position: absolute;right: 0;top: 10px;background: url(${pageContext.request.contextPath}/img/close.png);">
 		</a>
