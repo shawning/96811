@@ -808,7 +808,83 @@ a:hover{
     width: 300px;
     height: 185px;
 }
+#trackbacksCity .cost{
+    margin: 0;
+    margin-top: 10px;
+}
 
+#trackbacksCity .cost>div{
+    width: 48%;
+    height:350px;
+    border:solid #ddd 1px;
+    box-sizing: border-box;
+    margin:10px;
+    padding: 0;
+}
+
+#trackbacksCity .cost>div:hover{
+    border:solid 1px #f9a425;
+    box-shadow: 0 0 8px rgba(249, 164, 37, .5);
+    cursor:pointer;
+}
+
+#trackbacksCity .cost-icon img{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    opacity: 0.5;
+}
+
+#trackbacksCity .cost>div:hover .cost-icon{
+    color: #f9a425;
+}
+
+#trackbacksCity .cost>div:hover .cost-icon img{
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    -ms-filter: grayscale(0);
+    -o-filter: grayscale(0);
+    filter: grayscale(0);
+    opacity:1;
+}
+
+#trackbacksCity .cost>div:hover .cost-price{
+    background: #f9a425;
+    color: #fff;
+}
+
+#trackbacksCity .cost>div:hover .cost-text{
+    color: #333;
+}
+
+#trackbacksCity .cost-icon{
+    height: 110px;
+    background: #f8f8f8;
+    padding-top: 25px;
+}
+
+#trackbacksCity .cost-icon p{
+    margin: 0;
+    line-height: 30px;
+    display:block;
+}
+
+#trackbacksCity .cost-price{
+    background: #e2e2e2;
+    padding: 10px 0;
+    font-size:20px;
+    color:#999;
+}
+
+#trackbacksCity .cost-text{
+    padding-top: 30px;
+    color:#999;
+    font-size:18px;
+    line-height: 30px;
+}
 /***distributionCity(市内配送)***/
 #distributionCity .dist-banner img{
     width: 100%;

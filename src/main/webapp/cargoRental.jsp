@@ -204,38 +204,9 @@
 						放空费：由于客户的原因不能履约的，客户应当支付起步费；<br/>
 						其他费用：运输过程中产生的路桥（境）费、高速费、停车费等费用，由客户自理，承运方代收代付。
 					</div>
-					<!-- <div class="cost-price">
-						
-					</div>
-					<div class="cost-text">
-					</div> -->
 				</div>
-				<%-- <div class="col-xs-3">
-					<div class="cost-icon">
-						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
-						<p>2T搬场</p>
-					</div>
-					<div class="cost-price">
-						电议
-					</div>
-					<div class="cost-text">
-						咨询：96811<br/>
-						运输体积：14立方米
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="cost-icon">
-						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
-						<p>3T搬场</p>
-					</div>
-					<div class="cost-price">
-						电议
-					</div>
-					<div class="cost-text">
-						咨询：96811<br/>
-						运输体积：22立方米
-					</div>
-				</div> --%>
+
+
 			</div>
 		</div>
 	</section>

@@ -6,6 +6,8 @@
 	<meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>市内搬场-上海大众运行物流股份有限公司</title>
+	<link href="${pageContext.request.contextPath}/favicon.ico" rel="shortcut icon">
+
 	<!--[if lt IE 9]>
 		<script src="https://cdn.yuncars.cn/vendor/iecompatible/html5shiv.min.js"></script>
 	<![endif]-->
@@ -111,6 +113,55 @@
 		</div>
 	</section>
 
+	<section class="middle-content">
+		<div class="container">
+			<h3 class="dz-title">计费标准<small>CHARGING STANDARD</small></h3>
+			<div class="row text-center cost">
+
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
+						<p>小车</p>
+					</div>
+					<div class="cost-price">
+						￥800（基价）
+					</div>
+					<div class="cost-text" style="font-size: 14px;line-height:25px">
+						运距超距费：>10KM，40元/5KM<br/>
+						平面移动超距费：>20米，30元/5米<br/>
+						无楼梯上下楼层费：40元/层<br/>
+						有电梯上下每车次统收：60元/次<br/>
+						因故不能使用电梯上下：40元/层，7层以上加收50%
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
+						<p>大车</p>
+					</div>
+					<div class="cost-price">
+						￥1000（基价）
+					</div>
+					<div class="cost-text" style="font-size: 14px;line-height:25px">
+						运距超距费：>10KM，50元/5KM<br/>
+						平面移动超距费：>20米，50元/5米<br/>
+						无楼梯上下楼层费：60元/层<br/>
+						有电梯上下每车次统收：80元/次<br/>
+						因故不能使用电梯上下：60元/层，7层以上加收50%
+					</div>
+				</div>
+				<div class="col-xs-3" style="width:98%;height:112px">
+					<div class="cost-icon">
+						厢型车业务按基价上浮幅度30%以内<br/>
+						双休日按基价加收30%；节假日按基价加收50%<br/>
+						搬场收费主要由基价、运距、楼层、搬运的物品等组成，以上为上海市搬场行业协会指导价格，并非最终报价，详情请致电96811详询
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
 	<section class="news middle-content">
 		<div class="container text-center ">
 			<h2>服务用心,行动至诚</h2>	
