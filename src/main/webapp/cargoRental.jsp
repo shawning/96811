@@ -145,6 +145,11 @@
 		<div class="container">
 			<h3 class="dz-title">计费标准<small>CHARGING STANDARD</small></h3>
 			<div class="row text-center cost">
+				<button type="button" onclick="changeType('hycz','hyczwyc')" id="hyczBtn" class="btn btn-warning">货运出租</button>
+				<button type="button" onclick="changeType('hyczwyc','hycz')" id="hyczwycBtn" class="btn btn-default">货运出租网约车</button>
+			</div>
+
+			<div class="row text-center cost" id="hycz" >
 				<div class="col-xs-3">
 					<div class="cost-icon">
 						<img src="${pageContext.request.contextPath}/img/cost-icon-5.png" alt="">
@@ -155,7 +160,7 @@
 					</div>
 					<div class="cost-text">
 						运价：3.5元/公里<br/>
-						尺寸：3000×1600×1200
+						尺寸：3000*1600*1200
 					</div>
 				</div>
 				<div class="col-xs-3">
@@ -168,7 +173,7 @@
 					</div>
 					<div class="cost-text">
 						运价：3.5元/公里<br/>
-						尺寸：2450×1485×1260
+						尺寸：2450*1770*1710
 					</div>
 				</div>
 				<div class="col-xs-3">
@@ -181,7 +186,7 @@
 					</div>
 					<div class="cost-text">
 						运价：4.0元/公里<br/>
-						尺寸：3037×1632×1540
+						尺寸：3060*1760*1730
 					</div>
 				</div>
 				<div class="col-xs-3">
@@ -194,7 +199,7 @@
 					</div>
 					<div class="cost-text">
 						运价：4.5元/公里<br/>
-						尺寸：4210×1760×1730
+						尺寸：4210*1760*1730
 					</div>
 				</div>
 				<div class="col-xs-3" style="width:98%;height:112px">
@@ -206,8 +211,73 @@
 					</div>
 				</div>
 
-
 			</div>
+			<div class="row text-center cost" id="hyczwyc" style="display:none">
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-5.png" alt="">
+						<p>0.6T长安</p>
+					</div>
+					<div class="cost-price">
+						￥68（5公里）
+					</div>
+					<div class="cost-text">
+						运价：3.5元/公里<br/>
+						尺寸：3000*1600*1200
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-1.png" alt="">
+						<p>0.6T依维柯</p>
+					</div>
+					<div class="cost-price">
+						￥68（5公里）
+					</div>
+					<div class="cost-text">
+						运价：3.5元/公里<br/>
+						尺寸：2450*1770*1710
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-3.png" alt="">
+						<p>0.9T</p>
+					</div>
+					<div class="cost-price">
+						￥78（5公里）
+					</div>
+					<div class="cost-text">
+						运价：4.0元/公里<br/>
+						尺寸：3060*1760*1730
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
+						<p>1.75T</p>
+					</div>
+					<div class="cost-price">
+						￥98（5公里）
+					</div>
+					<div class="cost-text">
+						运价：4.5元/公里<br/>
+						尺寸：4210*1760*1730
+					</div>
+				</div>
+				<div class="col-xs-3" style="width:98%;height:112px">
+					<div class="cost-icon">
+						等候费：超过免费等候时间后，每五分钟折一公里计费；<br/>
+						装卸搬运费：运输前由客户与承运方协商支付；
+						放空费：由于客户的原因不能履约的，客户应当支付50%的起步费；<br/>
+						其他费用：运输过程中产生的路桥（境）费、高速费、停车费等费用，由客户自理，承运方代收代付。
+					</div>
+					<!-- <div class="cost-price">
+
+                    </div>
+                    <div class="cost-text">
+                    </div> -->
+				</div>
 		</div>
 	</section>
 
@@ -223,6 +293,12 @@
      		$(this).removeClass('open');    
      	}); 
     });
+	function changeType(showId,hideId) {
+		$("#"+showId).show();
+        $("#"+hideId).hide();
+        $("#"+showId+"Btn").removeClass("btn-default").addClass("btn-warning");
+        $("#"+hideId+"Btn").removeClass("btn-warning").addClass("btn-default");
+    }
 </script>
 </body>
 </html>
