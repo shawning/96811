@@ -8,6 +8,7 @@
 	<link href="${pageContext.request.contextPath}/favicon.ico" rel="shortcut icon">
 	<title>大众物流|大众搬家|大众搬场|热线：96811|上海大众运行物流股份有限公司官网---上海搬家公司|上海物流公司|上海货运公司</title>
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/redirect.js"></script>
 	<script type="text/javascript">
         /*
         $(document).ready(function() {
