@@ -50,11 +50,11 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".advbox").show();
+        /*$(".advbox").show();
         $(".advbox").animate({top:"50%"},1000);
         $(".closebtn").click(function(){
             $(".advbox").fadeOut(500);
-        })
+        })*/
     })
     </script>
 <!-- 广告内容结束 -->
