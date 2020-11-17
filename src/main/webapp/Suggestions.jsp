@@ -74,6 +74,10 @@
 				<p class="bg-warning">您好，请留下您的联系方式和反馈信息！</p>
 				<div class="reserve-content">
 					<form role="form">
+								<div class="form-group" style="color: red;font-size: 16px">
+									<label>投诉热线：96811</label>
+									<label style="padding-left:20pt">行业投诉热线：12319</label>
+								</div>
 						<div class="row">
 							<div class="col-xs-6">
 								<div class="form-group">
