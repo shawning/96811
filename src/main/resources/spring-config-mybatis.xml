@@ -23,16 +23,16 @@
 		<!-- 开发配置 -->
 		 <!-- <property name="url" value="${jdbc.url}"/> -->
 		<property name="url">
-			<value>jdbc:mysql://dzwldb.cn7vi1cu7cbm.rds.cn-north-1.amazonaws.com.cn:3306/dzwldb?useUnicode=true&amp;characterEncoding=utf-8</value>
+			<value>jdbc:mysql://sh-cdbrg-i1rx3nfm.sql.tencentcdb.com:60523/dzwldb?useUnicode=true&amp;characterEncoding=utf-8</value>
 			<!-- <value>jdbc:mysql://54.223.214.33:3306/dzwl_test?useUnicode=true&amp;characterEncoding=utf-8</value> -->
 		</property>
 		<property name="username">
 			<!-- <value>dzwluser</value> -->
-			<value>dbuser</value>
+			<value>root</value>
 		</property>
 		<property name="password">
 			<!-- <value>t0zpR4Bi</value> -->
-			<value>dbuser123!@#</value>
+			<value>2w6H9%nsP36C796-J3qd1Qz</value>
 		</property>
 		<!-- 连接池最大使用连接 -->
 		<property name="maxActive">

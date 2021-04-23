@@ -44,17 +44,17 @@
 <!-- 广告内容 -->
  <div class="advbox">
 <div class="advpic">
-    <a href="http://www.96811.com/news/newsDetail?id=17"><img width="650" height="400" alt="" src="img/tiaojiao.jpg"/></a>
+    <a href="javascript:void(0);"><img width="650" height="400" alt="" src="img/tiaojia2021.jpg"/></a>
     <a href="javascript:void(0);" class="closebtn">关闭</a>
 </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        /*$(".advbox").show();
+        $(".advbox").show();
         $(".advbox").animate({top:"50%"},1000);
         $(".closebtn").click(function(){
             $(".advbox").fadeOut(500);
-        })*/
+        })
     })
     </script>
 <!-- 广告内容结束 -->

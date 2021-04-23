@@ -165,19 +165,6 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="cost-icon">
-						<img src="${pageContext.request.contextPath}/img/cost-icon-1.png" alt="">
-						<p>0.6T依维柯</p>
-					</div>
-					<div class="cost-price">
-						￥40（5公里）
-					</div>
-					<div class="cost-text">
-						运价：3.5元/公里<br/>
-						尺寸：2450*1770*1710
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="cost-icon">
 						<img src="${pageContext.request.contextPath}/img/cost-icon-3.png" alt="">
 						<p>0.9T</p>
 					</div>
@@ -191,11 +178,37 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-1.png" alt="">
+						<p>依维柯</p>
+					</div>
+					<div class="cost-price">
+						￥50（5公里）
+					</div>
+					<div class="cost-text">
+						运价：5.0元/公里<br/>
+						尺寸：2450*1770*1710
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
 						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
 						<p>1.75T</p>
 					</div>
 					<div class="cost-price">
 						￥60（5公里）
+					</div>
+					<div class="cost-text">
+						运价：4.5元/公里<br/>
+						尺寸：4210*1760*1730
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
+						<p>1.75T(尾板)</p>
+					</div>
+					<div class="cost-price">
+						￥160（5公里）
 					</div>
 					<div class="cost-text">
 						运价：4.5元/公里<br/>
@@ -229,20 +242,6 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="cost-icon">
-						<img src="${pageContext.request.contextPath}/img/cost-icon-1.png" alt="">
-						<p>0.6T依维柯</p>
-					</div>
-					<div class="cost-price">
-						￥68（5公里）
-					</div>
-					<div class="cost-text">
-						运价：3.5元/公里<br/>
-						尺寸：2450*1770*1710<br/>
-						免费等候时间：40分钟
-					</div>
-				</div>
-				<div class="col-xs-3">
-					<div class="cost-icon">
 						<img src="${pageContext.request.contextPath}/img/cost-icon-3.png" alt="">
 						<p>0.9T</p>
 					</div>
@@ -257,11 +256,39 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-1.png" alt="">
+						<p>依维柯</p>
+					</div>
+					<div class="cost-price">
+						￥78（5公里）
+					</div>
+					<div class="cost-text">
+						运价：4.0元/公里<br/>
+						尺寸：2450*1770*1710<br/>
+						免费等候时间：50分钟
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
 						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
 						<p>1.75T</p>
 					</div>
 					<div class="cost-price">
 						￥98（5公里）
+					</div>
+					<div class="cost-text">
+						运价：4.5元/公里<br/>
+						尺寸：4210*1760*1730<br/>
+						免费等候时间：60分钟
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="cost-icon">
+						<img src="${pageContext.request.contextPath}/img/cost-icon-4.png" alt="">
+						<p>1.75T(尾板)</p>
+					</div>
+					<div class="cost-price">
+						￥198（5公里）
 					</div>
 					<div class="cost-text">
 						运价：4.5元/公里<br/>
