@@ -36,7 +36,7 @@
 	<jstl.version>1.2</jstl.version>
 	<prettytime.version>4.0.1.Final</prettytime.version>
 	<mybatis.version>3.2.3</mybatis.version>
-	<spring.version>4.0.0.RELEASE</spring.version>
+	<spring.version>5.3.19</spring.version>
 	<mybatis-spring.version>1.2.1</mybatis-spring.version>
 	<spring-data-commons.version>1.12.3.RELEASE</spring-data-commons.version>
 	<javassist.version>3.20.0-GA</javassist.version>
